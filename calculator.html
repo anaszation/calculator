@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .calculator {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+    
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input {
+      display: block;
+      margin: 5px auto;
+      padding: 8px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+    }
+    
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+  <title>Calculator Page</title>
+</head>
+<body>
+  <div class="calculator">
+    <label for="num1">grade 12th:</label>
+    <input type="number" id="num1" step="0.01" placeholder="Enter grade for 12th">
+    <label for="num2">Grade 11th:</label>
+    <input type="number" id="num2" step="0.01" placeholder="Enter grade for 11th">
+    <label for="num3">Grade 10th:</label>
+    <input type="number" id="num3" step="0.01" placeholder="Enter grade for 10th">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    function calculate() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var num3 = parseFloat(document.getElementById("num3").value);
+
+      var result1 = num1 / 12;
+      result1 = num1 * 0.8;
+      var result2 = num2 * 0.1;
+      var result3 = num3 * 0.1;
+      
+      var finalAnswer = result1 + result2 + result3;
+
+      document.getElementById("result").innerHTML = "Final Answer: " + finalAnswer.toFixed(2);
+    }
+  </script>
+</body>
+</html>
