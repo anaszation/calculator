@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('logo.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
+      background-color: #f4f4f4;
       margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      position: relative; /* Add relative positioning to body */
+    }
+
+    .logo-container {
+      position: absolute;
+      top: 10%; /* Adjust the top position as needed */
+      left: center; /* Adjust the left position as needed */
+
+      width: 175px; /* Adjust the width as needed */
+      height: 175px; /* Adjust the height as needed */
+      background-image: url('logo.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      border-radius: 50%;
+      overflow: hidden;
+   
+      z-index: 1;
     }
 
     body::before {
@@ -26,89 +40,40 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.2);
-      /* Adjust opacity as needed */
       z-index: -1;
-      /* Places the overlay behind other content */
     }
-
-    label{
-      color: black;
-    }
-    button {
-      color: #fff;
-      /* Change text color to white for better contrast */
-      /* Add additional styles as needed */
-    }
-
 
     .calculator {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Enhanced box shadow */
-  text-align: center;
-  width: 300px;
-  
-  transition: transform 0.3s ease-in-out; /* Add a subtle transform transition */
-}
+      background-color: #fff;
+      padding: 20px;
+    
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      width: 300px;
+      transition: transform 0.3s ease-in-out;
+    }
 
-.calculator:hover {
-  transform: scale(1.05); /* Scale up the calculator on hover */
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 10px 20px;
-  width: 100%;
-  font-size: 18px; /* Slightly larger font size */
-  transition: background-color 0.3s ease-in-out; /* Add a smooth background color transition */
-}
-
-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Add a subtle border to input fields */
-input {
-  display: block;
-  margin: 5px auto;
-  padding: 8px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px; /* Slightly larger font size */
-}
-
-/* Style the result text */
-#result {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 20px; /* Larger font size for result */
-  color: #007bff; /* Blue result text */
-}
-
+    .calculator:hover {
+      transform: scale(1.05);
+    }
 
     label {
       display: block;
-      text-align: center;
+      text-align: left;
       font-weight: bold;
       margin-bottom: 5px;
-
+      color: #333;
     }
 
     input {
       display: block;
-      margin: 10px auto;
+      margin: 5px auto;
       padding: 8px;
-      width: 100%;
+      width: 94%;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 14px;
-      width: 94%;
+      font-size: 16px;
     }
 
     button {
@@ -117,19 +82,27 @@ input {
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      padding: 10px;
+      padding: 10px 20px;
       width: 100%;
+      font-size: 18px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
     }
 
     #result {
       margin-top: 20px;
       font-weight: bold;
+      font-size: 20px;
+      color: #007bff;
     }
   </style>
   <title>حساب معدل البكلوريا</title>
 </head>
-
 <body>
+  <div class="logo-container"></div>
   <div class="calculator">
     <label for="num1">Grade 12th:</label>
     <input type="number" id="num1" step="0.01" placeholder="Enter grade for 12th">
@@ -146,8 +119,8 @@ input {
       var num2 = parseFloat(document.getElementById("num2").value);
       var num3 = parseFloat(document.getElementById("num3").value);
 
-      var result1 = num1 / 12;
-      result1 = num1 * 0.8;
+      var result1 = num1 *0.8;
+     
       var result2 = num2 * 0.1;
       var result3 = num3 * 0.1;
 
@@ -157,5 +130,4 @@ input {
     }
   </script>
 </body>
-
 </html>
