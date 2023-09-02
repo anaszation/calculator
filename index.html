@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+       body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
@@ -112,21 +112,71 @@
     <label for="num3">Grade 10th:</label>
     <input type="number" id="num3" step="0.01" placeholder="Enter grade for 10th">
     <button onclick="calculate()">Calculate</button>
-    <div id="result"></div>
+    <div id="error-message" style="color: red;"></div>
   </div>
   <script>
+    // Event listener for real-time validation
+    document.getElementById("num1").addEventListener("input", validateInput);
+    document.getElementById("num2").addEventListener("input", validateInput);
+    document.getElementById("num3").addEventListener("input", validateInput);
+
+    function validateInput() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var num3 = parseFloat(document.getElementById("num3").value);
+      var errorMessage = "";
+
+      if (num1 > 100) {
+        errorMessage += "Error: Grade 12th should not be more than 100.\n";
+        document.getElementById("num1").value = ""; // Clear the field
+      }
+
+      if (num2 > 100) {
+        errorMessage += "Error: Grade 11th should not be more than 100.\n";
+        document.getElementById("num2").value = ""; // Clear the field
+      }
+
+      if (num3 > 100) {
+        errorMessage += "Error: Grade 10th should not be more than 100.\n";
+        document.getElementById("num3").value = ""; // Clear the field
+      }
+
+      document.getElementById("error-message").textContent = errorMessage;
+    }
+
     function calculate() {
       var num1 = parseFloat(document.getElementById("num1").value);
       var num2 = parseFloat(document.getElementById("num2").value);
       var num3 = parseFloat(document.getElementById("num3").value);
+      var errorMessage = "";
 
-      var result1 = num1 * 0.8;
-      var result2 = num2 * 0.1;
-      var result3 = num3 * 0.1;
+      if (num1 > 100) {
+        errorMessage += "Error: Grade 12th should not be more than 100.\n";
+        document.getElementById("num1").value = ""; // Clear the field
+      }
 
-      var finalAnswer = result1 + result2 + result3;
+      if (num2 > 100) {
+        errorMessage += "Error: Grade 11th should not be more than 100.\n";
+        document.getElementById("num2").value = ""; // Clear the field
+      }
 
-      document.getElementById("result").innerHTML = "Final Answer: " + finalAnswer.toFixed(2);
+      if (num3 > 100) {
+        errorMessage += "Error: Grade 10th should not be more than 100.\n";
+        document.getElementById("num3").value = ""; // Clear the field
+      }
+
+      if (errorMessage !== "") {
+        document.getElementById("error-message").textContent = errorMessage;
+      } else {
+        var result1 = num1 * 0.8;
+        var result2 = num2 * 0.1;
+        var result3 = num3 * 0.1;
+
+        var finalAnswer = result1 + result2 + result3;
+
+        document.getElementById("error-message").textContent = ""; // Clear any previous error messages
+        document.getElementById("result").innerHTML = "Final Answer: " + finalAnswer.toFixed(2);
+      }
     }
   </script>
 </body>
