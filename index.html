@@ -17,9 +17,9 @@
 
     .logo-container {
       position: absolute;
-      top: 10%; /* Adjust the top position as needed */
-      left: center; /* Adjust the left position as needed */
-
+      top: 8%; /* Adjust the top position as needed */
+      left: 50%; /* Adjust the left position as needed */
+      transform: translateX(-50%); /* Center the logo horizontally */
       width: 175px; /* Adjust the width as needed */
       height: 175px; /* Adjust the height as needed */
       background-image: url('logo.jpg');
@@ -28,7 +28,6 @@
       background-position: center center;
       border-radius: 50%;
       overflow: hidden;
-   
       z-index: 1;
     }
 
@@ -46,12 +45,14 @@
     .calculator {
       background-color: #fff;
       padding: 20px;
-    
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       text-align: center;
       width: 300px;
       transition: transform 0.3s ease-in-out;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 200px; /* Adjust the top margin as needed */
     }
 
     .calculator:hover {
@@ -119,8 +120,7 @@
       var num2 = parseFloat(document.getElementById("num2").value);
       var num3 = parseFloat(document.getElementById("num3").value);
 
-      var result1 = num1 *0.8;
-     
+      var result1 = num1 * 0.8;
       var result2 = num2 * 0.1;
       var result3 = num3 * 0.1;
 
