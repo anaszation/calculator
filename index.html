@@ -126,60 +126,48 @@
       var num1 = parseFloat(document.getElementById("num1").value);
       var num2 = parseFloat(document.getElementById("num2").value);
       var num3 = parseFloat(document.getElementById("num3").value);
-      var errorMessage = "";
+      var errorMessage = "Error: Grades should not be more than 100 or less than 0.\n";
 
-      if (num1 > 100) {
-        errorMessage += "Error: Grade 12th should not be more than 100.\n";
+      var flag=false;
+
+      if (num1 > 100|| num1<0) {
+        flag=true;
         document.getElementById("num1").value = ""; // Clear the field
       }
 
-      if (num2 > 100) {
-        errorMessage += "Error: Grade 11th should not be more than 100.\n";
+      if (num2 > 100|| num2<0) {
+        flag=true;
         document.getElementById("num2").value = ""; // Clear the field
       }
 
-      if (num3 > 100) {
-        errorMessage += "Error: Grade 10th should not be more than 100.\n";
+      if (num3 > 100|| num3<0) {
+        flag=true;
         document.getElementById("num3").value = ""; // Clear the field
-      }
-
-      document.getElementById("error-message").textContent = errorMessage;
+      }     
+      if (flag==true) {
+        document.getElementById("error-message").textContent = errorMessage;
+        document.getElementById("result").textContent = ""; // Clear the result if there's an error
+      flag=false;
+      } 
     }
 
     function calculate() {
+
+
       var num1 = parseFloat(document.getElementById("num1").value);
       var num2 = parseFloat(document.getElementById("num2").value);
       var num3 = parseFloat(document.getElementById("num3").value);
-      var errorMessage = "";
-
-      if (num1 > 100) {
-        errorMessage += "Error: Grade 12th should not be more than 100.\n";
-        document.getElementById("num1").value = ""; // Clear the field
-      }
-
-      if (num2 > 100) {
-        errorMessage += "Error: Grade 11th should not be more than 100.\n";
-        document.getElementById("num2").value = ""; // Clear the field
-      }
-
-      if (num3 > 100) {
-        errorMessage += "Error: Grade 10th should not be more than 100.\n";
-        document.getElementById("num3").value = ""; // Clear the field
-      }
-
-      if (errorMessage !== "") {
-        document.getElementById("error-message").textContent = errorMessage;
-        document.getElementById("result").textContent = ""; // Clear the result if there's an error
-      } else {
+      
+     
         var result1 = num1 * 0.8;
         var result2 = num2 * 0.1;
         var result3 = num3 * 0.1;
 
         var finalAnswer = result1 + result2 + result3;
-
+        
         document.getElementById("error-message").textContent = ""; // Clear any previous error messages
-        document.getElementById("result").innerHTML = "Final Answer: " + finalAnswer.toFixed(2);
-      }
+        document.getElementById("result").innerHTML = "Final Answer: " + finalAnswer.toFixed(3);
+       
     }
   </script>
 </body>
