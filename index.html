@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-       body {
+     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
@@ -113,7 +113,9 @@
     <input type="number" id="num3" step="0.01" placeholder="Enter grade for 10th">
     <button onclick="calculate()">Calculate</button>
     <div id="error-message" style="color: red;"></div>
+    <div id="result"></div> <!-- Ensure this line is present -->
   </div>
+  
   <script>
     // Event listener for real-time validation
     document.getElementById("num1").addEventListener("input", validateInput);
@@ -167,6 +169,7 @@
 
       if (errorMessage !== "") {
         document.getElementById("error-message").textContent = errorMessage;
+        document.getElementById("result").textContent = ""; // Clear the result if there's an error
       } else {
         var result1 = num1 * 0.8;
         var result2 = num2 * 0.1;
